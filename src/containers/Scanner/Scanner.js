@@ -8,7 +8,7 @@ import { Input } from 'antd'
 import { Modal } from 'antd'
 import axios from '../../axios-coinLore'
 import classes from './Scanner.module.css'
-//import {Pie} from 'react-chartjs-2';
+
 
 import {
 	Chart as ChartJS,
@@ -74,10 +74,9 @@ class Scanner extends Component {
 		tableLoading: true,
 		pageSize: 10,
 		totalCoins: 100,
-		showHideComp1: false,
-		showHideComp2: false,
 		isMainPage: true,
-		ChartDetailsData: []
+		ChartDetailsData: [],
+		socialDetailsData: []
 
 	}
 	componentWillUnmount() {
@@ -98,8 +97,8 @@ class Scanner extends Component {
 			this.getBitCoinDetail(parseInt(myParam));
 			this.getMarketDataGraph(parseInt(myParam));
 			this.getSocialStatus(parseInt(myParam))
-		}else{
-			
+		}
+		else{
 			this.state.isMainPage = true;
 			this.getAllData();
 			}
@@ -182,14 +181,15 @@ class Scanner extends Component {
 	{
 		axios	
 		.get('https://api.coinlore.net/api/coin/social_stats/?', {params: { id: ID } })//{ params: { id: ID.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, '') } })			
-		
 		.then(SocialRepsonse => {
+		
 				const DetailtableData = SocialRepsonse.data.map((element, index) => {
-					
 				return { ...element, key: index }
 				
 			})
-			this.state.setState({ coinsData: DetailtableData, tableSocialDataDetails: DetailtableData, tableLoading: false })
+		
+			this.state.setState({socialDetailsData: DetailtableData,tableSocialDataDetails: DetailtableData, tableLoading: false })
+		
 			
 		})
 		.catch(err => {
@@ -223,7 +223,7 @@ class Scanner extends Component {
 	}
 	render() {
 
-			const columns = [
+		const columns = [
 			{
 				title: 'Rank',
 				dataIndex: 'rank',
@@ -295,9 +295,9 @@ class Scanner extends Component {
 			{
 				
 				title: 'reddit',
-				dataIndex: 'reddit',
-				key: 'subscribers',
-			
+				dataIndex: 'avg_active_users',
+				key: 'subscravg_active_usersibers',
+				render: text => <span>$ {text}</span>
 			},
 		
 			{
@@ -352,6 +352,7 @@ class Scanner extends Component {
 						
 					</>
 				) :
+				
 					
 					<>
 					<Cards cardsData={this.state.cards} ></Cards>
@@ -361,10 +362,10 @@ class Scanner extends Component {
           data={this.state.ChartDetailsData}
           options={{maintainAspectRatio: false}}></Pie> */}
 
-
+		  		
 					<Table 
 					columns={Detailscolumns}
-					dataSource={this.state.tableSocialDataDetails}
+					dataSource={this.state.socialDetailsData}
 					style={{ margin: '10px 50px' }}
 					pagination={{
 						pageSize: this.state.pageSize,
