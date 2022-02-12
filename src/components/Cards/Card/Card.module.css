@@ -1,0 +1,85 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	font-weight: 600;
+	border: #1c2331 solid 1px;
+	border-radius: 5px;
+	min-width: 350px;
+	box-sizing: border-box;
+	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	margin-top: 1.5rem;
+	background-color: ivory;
+	cursor: pointer;
+}
+
+.noShow {
+	display: none;
+}
+
+h5 {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-transform: uppercase;
+	font-weight: 600 !important;
+	font-size: large;
+
+	margin: 0px;
+}
+
+p {
+	font-size: 1.2rem;
+	font-weight: 600;
+	margin: 10px 0px !important;
+}
+
+.mcap > h5 {
+	background-color: #13c2c2;
+}
+
+.mcap > p {
+	color: #00474f;
+}
+
+.vol > h5 {
+	background-color: #1890ff;
+}
+
+.vol > p {
+	color: #003a8c;
+}
+
+.dom > h5 {
+	background-color: #722ed1;
+}
+
+.dom > p {
+	color: #22075e;
+}
+
+.avgChange > h5 {
+	background-color: #faad14;
+}
+
+.avgChange > p {
+	color: #874d00;
+}
+
+.volChange > h5 {
+	background-color: #a0d911;
+}
+
+.volChange > p {
+	color: #3f6600;
+}
+.namecrypto > h5 {
+	background-color: blue;
+}
+.namecrypto > p {
+	color: blue;
+}
+.default > h5 {
+	color: black;
+}
+

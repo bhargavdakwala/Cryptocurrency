@@ -1,0 +1,14 @@
+.Header {
+	background-color: #fafafa !important;
+	padding: 0px;
+	border-bottom: solid 1px grey;
+	height: 80px;
+}
+
+.Footer {
+	padding: 0px;
+}
+
+.Content {
+	background-color: white;
+}

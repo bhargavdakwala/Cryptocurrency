@@ -1,0 +1,19 @@
+.Coin {
+	font-weight: 700;
+}
+
+.Coin img {
+	margin-right: 10px;
+}
+
+.Coin span {
+	color: grey;
+}
+
+.Search {
+	margin-left: 50px;
+}
+
+button {
+	margin-left: 10px;
+}
